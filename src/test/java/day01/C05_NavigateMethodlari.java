@@ -1,3 +1,5 @@
+package day01;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -21,6 +23,7 @@ public class C05_NavigateMethodlari {
         //Techproed sayfasina yenileyelim
         Thread.sleep(3000);
         driver.navigate().refresh();
+
 
         // Son olarak sayfayi kapatiniz
         driver.close();
