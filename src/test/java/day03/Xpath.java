@@ -1,7 +1,8 @@
-package day3;
+package day03;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -24,9 +25,28 @@ public class Xpath {
       driver.get("https://the-internet.herokuapp.com/add_remove_elements/");
       // 2- Add Element butonuna basin
       Thread.sleep(3000);
-      driver.findElement(By.xpath("//*[text()='Add Element']")).click();
+      driver.findElement(By.xpath("//*[@onclick='addElement()']")).click();
       // Delete butonu’nun gorunur oldugunu test edin
+      WebElement deleteButonu = driver.findElement(By.xpath("//*[@class='added-manually']"));
+      if (deleteButonu.isDisplayed()){
+         System.out.println("TEST PASSED");
+      }else System.out.println("TEST FAILED");
       // Delete tusuna basin
+      deleteButonu.click();
       // “Add/Remove Elements” yazisinin gorunur oldugunu test edin
+      WebElement addRemove = driver.findElement(By.xpath("//h3"));
+      if (addRemove.isDisplayed()){
+         System.out.println("TEST PASSED");
+      }else System.out.println("TEST FAILED");
+      //sayfayi kaapatin
+      driver.close();
+      /*
+    1-https://the-internet.herokuapp.com/add_remove_elements/ adresine gidin
+    2- Add Element butonuna 10 kez basinız
+    3- 10 kez Add element butonuna basıldığını test ediniz
+    4 - Delete butonuna görünmeyene kadar basınız
+    5- Delete butonunun görünmediğini test ediniz
+    6- Sayfayı kapatınız
+     */
    }
 }
